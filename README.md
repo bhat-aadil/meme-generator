@@ -1,3 +1,3 @@
 # MemeGenerator
 
-This is a meme generator in React and Tailwind
+This is a meme generator in React Js and Tailwind
