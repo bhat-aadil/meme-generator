@@ -5,7 +5,6 @@ import StickerPicker from "./components/StickerPicker";
 import StickerUploader from "./components/StickerUploader";
 import TemplatePicker from "./components/TemplatePicker";
 import { FaBars } from "react-icons/fa";
-
 function App() {
   const memeRef = useRef(null);
   const [template, setTemplate] = useState(null);
