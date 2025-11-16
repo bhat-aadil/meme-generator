@@ -56,7 +56,7 @@ function MemeCanvas({
           bounds="parent"
           enableResizing={false}
         >
-          <h2 className="absolute top-96 text-gray-800 font-extrabold text-2xl drop-shadow-lg cursor-move">
+          <h2 className="absolute top-60 text-gray-800 font-extrabold text-2xl drop-shadow-lg cursor-move">
             {bottomText}
           </h2>
         </Rnd>

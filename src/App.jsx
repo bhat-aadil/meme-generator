@@ -46,10 +46,13 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col p-6">
+    <div className=" min-h-screen flex flex-col p-6">
       <h1 className="text-3xl font-bold mb-4">🎭 Meme Generator</h1>
+
       <FaBars
-        className="fixed top-10 left-2 z-50 hidden max-tab:block mt-4 mb-4"
+        className={`hidden max-tab:block mt-4 mb-4 transition duration-300 ${
+          isOpen ? "transform rotate-90" : null
+        }`}
         onClick={handleSidebar}
       />
 
