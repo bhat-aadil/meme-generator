@@ -40,7 +40,7 @@ function TemplatePicker({ onSelect, customTemplates }) {
       />
 
       <div className="grid grid-cols-2 gap-5 max-h-[400px] overflow-y-auto">
-        {/* Custom templates first */}
+        {/* Custom templates */}
         {customTemplates.map((tpl) => (
           <button
             key={tpl.id}

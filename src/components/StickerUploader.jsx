@@ -1,5 +1,3 @@
-import React from "react";
-
 function StickerUploader({ onUpload }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -11,7 +9,7 @@ function StickerUploader({ onUpload }) {
     ) {
       const reader = new FileReader();
       reader.onload = () => {
-        onUpload(reader.result); // base64 data URL
+        onUpload(reader.result);
       };
       reader.readAsDataURL(file);
     } else {

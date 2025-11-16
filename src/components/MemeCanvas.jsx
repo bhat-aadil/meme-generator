@@ -1,5 +1,3 @@
-import { useRef } from "react";
-import html2canvas from "html2canvas";
 import * as htmlToImage from "html-to-image";
 import { Rnd } from "react-rnd";
 import EmojiSticker from "./EmojiSticker";
@@ -12,8 +10,6 @@ function MemeCanvas({
   setStickers,
   ref,
 }) {
-  // const memeRef = useRef();
-
   const downloadMeme = async () => {
     if (!ref.current) return;
     try {
@@ -29,19 +25,6 @@ function MemeCanvas({
       console.error("Download failed:", err);
     }
   };
-
-  // const downloadMeme = async () => {
-  //   // Take snapshot
-  //   const canvas = await html2canvas(memeRef.current, {
-  //     useCORS: true, // fix CORS issues for external images
-  //   });
-
-  //   // Download image
-  //   const link = document.createElement("a");
-  //   link.download = "meme.png";
-  //   link.href = canvas.toDataURL("image/png");
-  //   link.click();
-  // };
 
   const removeSticker = (index) => {
     setStickers(stickers.filter((_, i) => i !== index));
@@ -59,26 +42,21 @@ function MemeCanvas({
           backgroundPosition: "center",
         }}
       >
-        {/* <img
-          src={template.url}
-          alt={template.name}
-          className="rounded-lg  w-full"
-        /> */}
         <Rnd
           default={{ x: 50, y: 20, width: "auto", height: "auto" }}
           bounds="parent"
-          enableResizing={false} // only drag, no resize
+          enableResizing={false}
         >
-          <h2 className="absolute top-2 text-white font-extrabold text-2xl drop-shadow-lg cursor-move">
+          <h2 className="absolute top-2 text-gray-800 font-extrabold text-2xl drop-shadow-lg cursor-move">
             {topText}
           </h2>
         </Rnd>
         <Rnd
           default={{ x: 50, y: 20, width: "auto", height: "auto" }}
           bounds="parent"
-          enableResizing={false} // only drag, no resize
+          enableResizing={false}
         >
-          <h2 className="absolute bottom-2 text-white font-extrabold text-2xl drop-shadow-lg cursor-move">
+          <h2 className="absolute top-96 text-gray-800 font-extrabold text-2xl drop-shadow-lg cursor-move">
             {bottomText}
           </h2>
         </Rnd>
@@ -90,7 +68,6 @@ function MemeCanvas({
             bounds="parent"
             lockAspectRatio
           >
-            {/* <div className="absolute cursor-move text-4xl">{sticker}</div> */}
             <div className="relative w-full h-full group">
               {sticker.type === "emoji" ? (
                 <EmojiSticker emoji={sticker.value} size={48} />
@@ -101,7 +78,7 @@ function MemeCanvas({
                   className="w-full h-full object-contain"
                 />
               )}
-              {/* ❌ Delete button */}
+              {/* Delete button */}
               <button
                 onClick={(e) => {
                   removeSticker(index);

@@ -1,5 +1,3 @@
-import React from "react";
-
 function MemeTemplates({ templates, onSelect }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-h-64 overflow-y-scroll">

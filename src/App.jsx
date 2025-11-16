@@ -35,10 +35,7 @@ function App() {
   };
 
   const handleStickerAdd = (emojiData) => {
-    setStickers((prev) => [
-      ...prev,
-      { type: "emoji", value: emojiData.emoji }, // make sure you use emojiData.emoji
-    ]);
+    setStickers((prev) => [...prev, { type: "emoji", value: emojiData.emoji }]);
   };
 
   const handleImageUpload = (imageData) => {
@@ -50,23 +47,19 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col p-6">
+    <div className="relative min-h-screen flex flex-col p-6">
       <h1 className="text-3xl font-bold mb-4">🎭 Meme Generator</h1>
       <FaBars
-        className=" hidden max-tab:block mt-4 mb-4"
+        className="fixed top-10 left-2 z-50 hidden max-tab:block mt-4 mb-4"
         onClick={handleSidebar}
       />
 
       <main className="w-full flex items-baseline relative">
         <aside
           id="side"
-          // className={`absolute w-1/4  bg-yellow-100 rounded-lg shadow-md p-2 max-mobile:-left-full ${
-          //   sidebarOpen ? "left-0" : "-left-full"
-          // }  `}
-
           className={`absolute left-0 bg-yellow-100 rounded-lg shadow-md p-2 z-50 transform transition-transform duration-300 overflow-auto
           ${isOpen ? "translate-x-0" : "-translate-x-96"} tab:translate-x-0
-          ${isOpen ? "w-2/3" : "w-1/4"} `}
+          ${isOpen ? "w-full" : "w-1/4"} `}
         >
           {/* Controls for text */}
           <Controls
